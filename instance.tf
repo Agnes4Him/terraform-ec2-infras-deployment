@@ -21,6 +21,7 @@ resource "aws_key_pair" "project_ssh_key" {
     vpc_security_group_ids = [aws_security_group.project_sg.id]
     availability_zone = var.avail_zone
     associate_public_ip_address = true
+    enable_dns_hostnames = true
     key_name = aws_key_pair.project_ssh_key.key_name
     tags = {
         Name: "${var.env}-server"
@@ -37,6 +38,7 @@ resource "aws_key_pair" "project_ssh_key" {
     vpc_security_group_ids = [aws_security_group.project_sg.id]
     availability_zone = var.avail_zone
     associate_public_ip_address = true
+    enable_dns_hostnames = true
     key_name = aws_key_pair.project_ssh_key.key_name
     tags = {
         Name: "${var.env}-server"
@@ -53,6 +55,7 @@ resource "aws_instance" "project_server" {
     vpc_security_group_ids = [aws_security_group.project_sg.id]
     availability_zone = var.avail_zone
     associate_public_ip_address = true
+    enable_dns_hostnames = true
     key_name = aws_key_pair.project_ssh_key.key_name
     tags = {
         Name: "${var.env}-server"
