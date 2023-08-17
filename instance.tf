@@ -12,8 +12,7 @@ resource "aws_key_pair" "project_ssh_key" {
     public_key = file(var.public_key_location)
 }
 
-// Provision instance with docker installed and Nginx docker container running with default page...
-
+// Provision instance with docker installed and nginx docker container running with default page...
 /*resource "aws_instance" "project_server" {
     ami = data.aws_ami.project_ubuntu_ami.id
     instance_type = "t2.micro"
@@ -21,7 +20,6 @@ resource "aws_key_pair" "project_ssh_key" {
     vpc_security_group_ids = [aws_security_group.project_sg.id]
     availability_zone = var.avail_zone
     associate_public_ip_address = true
-    enable_dns_hostnames = true
     key_name = aws_key_pair.project_ssh_key.key_name
     tags = {
         Name: "${var.env}-server"
@@ -29,8 +27,7 @@ resource "aws_key_pair" "project_ssh_key" {
     user_data = file("entry-script-one.sh")
 }*/
 
-// Provision instance with Nginx installed and custom message displayed...
-
+// Provision instance with nginx installed and custom message displayed...
 /*resource "aws_instance" "project_server" {
     ami = data.aws_ami.project_ubuntu_ami.id
     instance_type = "t2.micro"
@@ -38,7 +35,6 @@ resource "aws_key_pair" "project_ssh_key" {
     vpc_security_group_ids = [aws_security_group.project_sg.id]
     availability_zone = var.avail_zone
     associate_public_ip_address = true
-    enable_dns_hostnames = true
     key_name = aws_key_pair.project_ssh_key.key_name
     tags = {
         Name: "${var.env}-server"
@@ -46,8 +42,7 @@ resource "aws_key_pair" "project_ssh_key" {
     user_data = file("entry-script-two.sh")
 }*/
 
-// Provision instance with Nginx installed and custom html page displayed...
-
+// Provision instance with nginx installed with a website displayed...
 resource "aws_instance" "project_server" {
     ami = data.aws_ami.project_ubuntu_ami.id
     instance_type = "t2.micro"
@@ -55,7 +50,6 @@ resource "aws_instance" "project_server" {
     vpc_security_group_ids = [aws_security_group.project_sg.id]
     availability_zone = var.avail_zone
     associate_public_ip_address = true
-    enable_dns_hostnames = true
     key_name = aws_key_pair.project_ssh_key.key_name
     tags = {
         Name: "${var.env}-server"
